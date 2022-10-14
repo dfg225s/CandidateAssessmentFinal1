@@ -7,7 +7,7 @@ The app saved to this repository is a very simple application tracking imaginary
 2. Unzip locally and open in Visual Studio. This should work in both Windows and Mac versions of Visual Studio 2022. 
 3. Email christian.whiting@ccsheriff.org to receive the database connection string. 
 4. Complete the tasks outlined below. 
-5. Once completed, push your code to your own public repository and send the link to  christian.whiting@ccsheriff.org, charles.martinez@ccsheriff.org, and anthony.delSanto@ccsheriff.org. 
+5. Once completed, push your code to your own public repository and send the link to  christian.whiting@ccsheriff.org and charles.martinez@ccsheriff.org.
 
 
 
