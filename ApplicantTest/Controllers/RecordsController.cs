@@ -20,6 +20,7 @@ namespace ApplicantTest.Controllers
         {
             ViewBag.AgeList = CreateAgeList();
             ViewBag.SchoolList = CreateSchoolDropdownList();
+            ViewBag.OrgList = CreateStudentOrgDropdown();
 
             var model = _studentService.GetStudents().OrderBy(s => s.LastName);
             return View(model);
@@ -57,6 +58,20 @@ namespace ApplicantTest.Controllers
         {
             // replace this code with code to grab the schools and create a List<SelectListItem> object from them.
             return new List<SelectListItem> { new SelectListItem { Text = "Replace this code", Value = "" } };
+        }
+
+        private MultiSelectList CreateStudentOrgDropdown()
+        {
+            // replace this code with code to grab the student orgs and create a List<SelectListItem> object from them.
+            var options = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Option 1", Value = "1" },
+                new SelectListItem { Text = "Option 2", Value = "2" },
+                new SelectListItem { Text = "Option 3", Value = "3" },
+                new SelectListItem { Text = "Option 4", Value = "4" }
+            };
+
+            return new MultiSelectList(options, "Value", "Text");
         }
     }
 }

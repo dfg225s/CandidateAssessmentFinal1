@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Age</th>
+            <th>Student Orgs</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,10 @@
                 <td>@student.LastName, @student.FirstName</td>
                 <td>@student.Email</td>
                 <td>@student.Age</td>
+                <td>@Html.Raw(
+                    string.Join("<br/>", @student.OrgAssignments.Select(oa => oa.StudentOrg.OrgName))
+                    )
+                </td>
             </tr>
         }
     </tbody>

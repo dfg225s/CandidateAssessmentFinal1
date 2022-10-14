@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApplicantTest.Models
 {
     public partial class Student
     {
+        public Student()
+        {
+            OrgAssignments = new HashSet<OrgAssignment>();
+        }
+
         public int StudentId { get; set; }
         public int SchoolId { get; set; }
         public string? FirstName { get; set; }
@@ -13,5 +19,9 @@ namespace ApplicantTest.Models
         public int? Age { get; set; }
 
         public virtual School School { get; set; } = null!;
+        public virtual ICollection<OrgAssignment> OrgAssignments { get; set; }
+
+        [NotMapped]
+        public List<int> SelectedOrgs { get; set; }
     }
 }

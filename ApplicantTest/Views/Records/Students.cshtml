@@ -41,6 +41,10 @@
                             <label class="form-label">School</label>
                             <select name="SchoolId" asp-items="@ViewBag.SchoolList" class="form-control"></select>
                         </div>
+                        <div class="col-6">
+                            <label class="form-label">Student Organizations</label>
+                            <select name="SchoolId" asp-items="@ViewBag.OrgList" multiple class="form-control"></select>
+                        </div>
                     </div>
 
                 </div>

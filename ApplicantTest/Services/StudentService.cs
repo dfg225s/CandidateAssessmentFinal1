@@ -15,7 +15,9 @@ namespace ApplicantTest.Services
         public IEnumerable<Student> GetStudents()
         {
             return _dbContext.Students
-                .Include(s => s.School);
+                .Include(s => s.School)
+                .Include(s => s.OrgAssignments)
+                    .ThenInclude(oa => oa.StudentOrg);
         }
     }
 }
