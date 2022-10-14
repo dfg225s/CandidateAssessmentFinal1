@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApplicantTest.Models
+namespace CandidateAssessment.Models
 {
     public partial class Student
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ApplicantTest.Models
+namespace CandidateAssessment.Models
 {
     public partial class School
     {

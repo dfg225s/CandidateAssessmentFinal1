@@ -16,9 +16,19 @@
                 <td>@student.LastName, @student.FirstName</td>
                 <td>@student.Email</td>
                 <td>@student.Age</td>
-                <td>@Html.Raw(
-                    string.Join("<br/>", @student.OrgAssignments.Select(oa => oa.StudentOrg.OrgName))
-                    )
+                <td>
+                    @if (student.OrgAssignments.Any())
+                    {
+                        <text>
+                            @Html.Raw(
+                                string.Join("<br/>", @student.OrgAssignments.Select(oa => oa.StudentOrg.OrgName))
+                            )
+                        </text>
+                    }
+                    else
+                    {
+                        <text>None</text>
+                    }
                 </td>
             </tr>
         }

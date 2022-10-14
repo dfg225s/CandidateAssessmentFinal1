@@ -1,10 +1,10 @@
-﻿using ApplicantTest.Models;
-using ApplicantTest.Services;
+﻿using CandidateAssessment.Models;
+using CandidateAssessment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
-namespace ApplicantTest.Controllers
+namespace CandidateAssessment.Controllers
 {
     public class RecordsController : Controller
     {

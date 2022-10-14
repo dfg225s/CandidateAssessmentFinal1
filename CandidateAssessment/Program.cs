@@ -1,5 +1,5 @@
-using ApplicantTest.Models;
-using ApplicantTest.Services;
+using CandidateAssessment.Models;
+using CandidateAssessment.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicantTestContext>(options =>
+builder.Services.AddDbContext<CandidateAssessmentContext>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString("MainDbConnection")),
               ServiceLifetime.Scoped);
 

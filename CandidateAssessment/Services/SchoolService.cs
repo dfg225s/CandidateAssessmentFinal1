@@ -1,13 +1,13 @@
-﻿using ApplicantTest.Models;
+﻿using CandidateAssessment.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicantTest.Services
+namespace CandidateAssessment.Services
 {
     public class SchoolService
     {
-        private ApplicantTestContext _dbContext;
+        private CandidateAssessmentContext _dbContext;
 
-        public SchoolService(ApplicantTestContext dbContext)
+        public SchoolService(CandidateAssessmentContext dbContext)
         {
             _dbContext = dbContext;
         }
