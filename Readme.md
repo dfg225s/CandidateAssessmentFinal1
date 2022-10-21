@@ -7,7 +7,7 @@ The app saved to this repository is a very simple application tracking imaginary
 2. Unzip locally and open in Visual Studio. This should work in both Windows and Mac versions of Visual Studio 2022. 
 3. Email christian.whiting@ccsheriff.org to receive the database connection string. 
 4. Complete the tasks outlined below. 
-5. Once completed, push your code to your own public repository and send the link to  christian.whiting@ccsheriff.org, charles.martinez@ccsheriff.org, and anthony.delSanto@ccsheriff.org. 
+5. Once completed, push your code to your own public repository and send the link to  christian.whiting@ccsheriff.org and charles.martinez@ccsheriff.org.
 
 
 
@@ -15,5 +15,5 @@ The app saved to this repository is a very simple application tracking imaginary
 If you have any questions about the following tasks, please email christian.whiting@ccsheriff.org.
 
 1. **Add the School column to the Student table** - Display which school each student is attending in the front end student table. 
-2. **Complete the Add Student modal form** - Generate the school and student organization dropdown lists from the the database. Add server side code to save the submitted model to the database. You will need to convert the **SelectedOrgs** property of  **Students** to **OrgAssignments** and save to the database. Don't worry about validating the inputs but the form should not break when saved.  
+2. **Complete the Add Student modal form** - Generate the school and student organization dropdown lists from the the database. Add server side code to save the submitted model to the database. You will need to convert the **SelectedOrgs** property of  **Students** to **OrgAssignments** and save to the database. Don't worry about validating the inputs.  
 3. **Complete the link in the Students column of the Schools table** - The link should navigate to a page displaying the students that go to the school correlating to the row clicked. A new controller action and view will need to be created to accomplish this. 
