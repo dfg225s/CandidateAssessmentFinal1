@@ -1,6 +1,6 @@
 
 ## Description
-The app saved to this repository is a very simple application tracking imaginary students enrolled in a small set of schools. Both the students and schools have basic data fields assigned to them. There is a one-to-many relationship between the students and schools which should be represented in the front end tables.
+This app is a very simple application tracking fake students enrolled in a small set of schools.
 
 ## Instructions
 1. Download the zip file of this code. 
