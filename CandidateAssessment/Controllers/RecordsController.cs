@@ -2,6 +2,7 @@
 using CandidateAssessment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace CandidateAssessment.Controllers
@@ -32,11 +33,16 @@ namespace CandidateAssessment.Controllers
             return View(model);
         }
 
+        public IActionResult SchoolStudents(School school)
+        {
+            var model = _schoolService.GetSchoolStudents(school.SchoolId).OrderBy(s => s.LastName);
+            return View("_StudentTable", model);
+        }
+
         [HttpPost]
         public IActionResult SaveStudent(Student model)
         {
-            // replace this code with code that actually saves the model
-
+            _studentService.SaveStudent(model);
             return RedirectToAction("Students");
         }
 
@@ -57,19 +63,24 @@ namespace CandidateAssessment.Controllers
         private List<SelectListItem> CreateSchoolDropdownList()
         {
             // replace this code with code to grab the schools and create a List<SelectListItem> object from them.
-            return new List<SelectListItem> { new SelectListItem { Text = "Replace this code", Value = "" } };
+            var model = _schoolService.GetSchools();
+            var options = model.Select(school => new SelectListItem
+            {
+                Text = school.Name,
+                Value = school.SchoolId.ToString()
+            }).ToList();
+            return options;
         }
 
         private MultiSelectList CreateStudentOrgDropdown()
         {
+            var model = _studentService.GetStudentsOrgs();
             // replace this code with code to grab the student orgs and create a List<SelectListItem> object from them.
-            var options = new List<SelectListItem>
+            var options = model.Select(org => new SelectListItem
             {
-                new SelectListItem { Text = "Option 1", Value = "1" },
-                new SelectListItem { Text = "Option 2", Value = "2" },
-                new SelectListItem { Text = "Option 3", Value = "3" },
-                new SelectListItem { Text = "Option 4", Value = "4" }
-            };
+                Text = org.OrgName,
+                Value = org.Id.ToString() // Assuming Id is the property representing the value
+            }).ToList();
 
             return new MultiSelectList(options, "Value", "Text");
         }

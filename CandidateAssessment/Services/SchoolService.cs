@@ -17,5 +17,13 @@ namespace CandidateAssessment.Services
             return _dbContext.Schools
                 .Include(s => s.Students);
         }
+
+        public IEnumerable<Student> GetSchoolStudents(int SchoolId)
+        {
+            return _dbContext.Students
+                .Where(st => st.SchoolId == SchoolId)
+                .Include(s => s.OrgAssignments)
+                    .ThenInclude(oa => oa.StudentOrg);
+        }
     }
 }

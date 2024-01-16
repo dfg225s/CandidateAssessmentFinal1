@@ -1,16 +1,21 @@
 ﻿@model IEnumerable<Student>
 
-<table class="table table-hover table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Student Orgs</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var student in Model)
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Student Orgs</th>
+                @if (Model.Any(s => s.School != null))
+            {
+                <th>School</th>
+
+            }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
         {
             <tr>
                 <td>@student.LastName, @student.FirstName</td>
@@ -19,18 +24,25 @@
                 <td>
                     @if (student.OrgAssignments.Any())
                     {
-                        <text>
-                            @Html.Raw(
-                                string.Join("<br/>", @student.OrgAssignments.Select(oa => oa.StudentOrg.OrgName))
-                            )
-                        </text>
+                    <text>
+                        @Html.Raw(
+                            string.Join("<br/>", @student.OrgAssignments.Select(oa => oa.StudentOrg.OrgName))
+                        )
+                    </text>
                     }
                     else
                     {
-                        <text>None</text>
+                    <text>None</text>
                     }
                 </td>
+
+                @if (student.School != null)
+                    {
+                <td>
+                    @student.School.Name
+                </td>
+                }
             </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
