@@ -29,17 +29,28 @@ namespace CandidateAssessment.Services
         }
         public void SaveStudent(Student student)
         {
-            _dbContext.Students.Add(student);
-            _dbContext.SaveChanges();
-            OrgAssignment orgAssignment = new OrgAssignment
+            if (student.SelectedOrgs != null && student.SelectedOrgs.Any())
             {
-                StudentOrgId = student.SelectedOrgs[0],
-                StudentId = student.StudentId
-            };
+                // Save the student information
+                _dbContext.Students.Add(student);
+                _dbContext.SaveChanges();
 
-            _dbContext.OrgAssignments.Add(orgAssignment);
+                // Iterate over selected organization IDs
+                foreach (int orgId in student.SelectedOrgs)
+                {
+                    OrgAssignment orgAssignment = new OrgAssignment
+                    {
+                        StudentOrgId = orgId,
+                        StudentId = student.StudentId
+                    };
 
-            _dbContext.SaveChanges();
+                    // Save each OrgAssignment
+                    _dbContext.OrgAssignments.Add(orgAssignment);
+                }
+
+                // Save changes to the database
+                _dbContext.SaveChanges();
+            }
         }
     }
 }
